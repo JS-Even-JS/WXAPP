@@ -16,4 +16,8 @@
 ### 备注
   * 勾选建立普通快速启动模板后，开发工具就会自动创建一些微信小程序的模板结构，包含了微信小程序的必备文件;
   * 如果没有勾选，那么创建的项目中就不会添加任何文件，进入项目之后开发工具就会提示app.json文件出错，因为小程序打开时就会去寻找名为app.json的文件;
+
+* 1.2.3 微信小程序的主要文件
+  微信小程序项目根目录下面会包含2个目录和4个文件,分别为:app.js、app.json、app.wxss、pages目录、utils目录;如:
+  ![](https://github.com/JS-Even-JS/WXAPP/blob/master/res/wx_app_project_structure.png)
   
