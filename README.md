@@ -18,6 +18,11 @@
     * 如果没有勾选，那么创建的项目中就不会添加任何文件，进入项目之后开发工具就会提示app.json文件出错，因为小程序打开时就会去寻找名为app.json的文件;
 
 * 1.2.3 微信小程序的主要文件
-  微信小程序项目根目录下面会包含2个目录和4个文件,分别为:app.js、app.json、app.wxss、pages目录、utils目录;如:
+  微信小程序项目根目录下面会包含2个目录和4个文件,分别为:pages目录、utils目录、app.js、app.json、app.wxss、project.config.json,如:
   ![](https://github.com/JS-Even-JS/WXAPP/blob/master/res/wx_app_project_structure.png)
+  .js后缀的是脚本文件，.json后缀的是配置文件、.wxss后缀的是样式表文件，微信小程序会读取这些文件，并生成小程序实例.
   
+ ## 第二章 微信小程序架构分析
+ 2.1 微信小程序框架结构
+ * 2.1.1 目录结构
+   一个微信小程序的页面是由一个`页面描述文件`、一个`页面逻辑文件`、一个`样式表文件`来进行描述的。
