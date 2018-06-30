@@ -62,3 +62,15 @@
     "debug":true//开启debug模式
   }
   ``` 
+* 2.2.2 页面配置文件的配置<br/>
+  因为我们可能需要`在不同的页面显示不同的标题`等，所以每个页面也可能需要一个自己的配置文件，而且页面中配置项会覆盖掉app.json中配置的内容;<br/>
+  不过，`页面的配置文件中只能配置app.json中的window的配置内容`，所以`页面的配置文件中无须指定window属性，而是直接在花括号内配置`;
+  ```
+  pages/index/index.json
+  {
+    "navigationBarTitleText": "首页",
+    "navigationBarTextStyle": "black",
+    "navigationBarBackgroundColor": "#eeeeee",
+    "backgroundTextStyle": "light"
+  }
+  ```
