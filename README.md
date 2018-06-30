@@ -50,4 +50,8 @@
   a. 通过pages属性配置页面路径，其值是一个数组，微信小程序中所使用到的页面都必须在app.json中进行配置才会生效,数组中的每一项是代表页面路径的字符串，其格式为"pages/页面名称/页面文件名"，文件名不需要写后缀，因为框架会自动寻找对应的.wxml、.wxss、.js、.json文件并进行编译和组合;<br/>
   其中位于pages数组中的第一项表示小程序的初始页面，即小程序的首页;<br/>
   b. 通过window属性配置窗口状态,如:<br/>
-  ![](https://github.com/JS-Even-JS/WXAPP/blob/master/res/app_config.png)
+  ![](https://github.com/JS-Even-JS/WXAPP/blob/master/res/app_config.png)<br/>
+  c. 通过tabBar属性配置窗口底部的tabBar，所谓tabBar就是指小程序底部有一个可以用于切换页面的tab栏，tabBar至少要配置2个tab，最多配置5个tab，每个tab可以配置文字和图标，图标显示在tab的上方，文本显示在tab的下方，其主要配置如下:<br/>
+  ![](https://github.com/JS-Even-JS/WXAPP/blob/master/res/tabBar_config.png)
+  ![](https://github.com/JS-Even-JS/WXAPP/blob/master/res/tabBar.png)<br/>
+  
