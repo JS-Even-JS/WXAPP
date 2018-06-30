@@ -54,4 +54,11 @@
   c. 通过tabBar属性配置窗口底部的tabBar，所谓tabBar就是指小程序底部有一个可以用于切换页面的tab栏，tabBar至少要配置2个tab，最多配置5个tab，每个tab可以配置文字和图标，图标显示在tab的上方，文本显示在tab的下方，其主要配置如下:<br/>
   ![](https://github.com/JS-Even-JS/WXAPP/blob/master/res/tabBar_config.png)
   ![](https://github.com/JS-Even-JS/WXAPP/blob/master/res/tabBar.png)<br/>
-  
+  d. 通过networkTimeout属性配置网络超时时间，如:<br/>
+  ```
+  "networkTimeout":{
+    "request":10000,
+    "downloadFile":10000,
+    "debug":true
+  }
+  ``` 
