@@ -12,4 +12,4 @@
   小程序注册成功后，开发者可以在，设置-->开发设置 中，查看到自己的微信小程序的AppID，如我的微信小程序ID为wx9b17e456fc633ca2
 * 1.2.2 创建项目
   打开微信小程序开发工具，
-  
+  ![](https://github.com/JS-Even-JS/WXAPP/edit/master/res/create_wx_app.png)
