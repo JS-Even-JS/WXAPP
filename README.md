@@ -11,5 +11,5 @@
   (https://mp.weixin.qq.com/wxopen/waregister?action=step1)
   小程序注册成功后，开发者可以在，设置-->开发设置 中，查看到自己的微信小程序的AppID，如我的微信小程序ID为wx9b17e456fc633ca2
 * 1.2.2 创建项目
-  打开微信小程序开发工具，
+  打开微信小程序开发工具，填入 项目所在目录、AppID、项目名称 点击确定即可创建一个微信小程序，如:
   ![](https://github.com/JS-Even-JS/WXAPP/blob/master/res/create_wx_app.png)
