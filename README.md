@@ -57,8 +57,8 @@
   d. 通过networkTimeout属性配置网络超时时间，如:<br/>
   ```
   "networkTimeout":{
-    "request":10000,
-    "downloadFile":10000,
-    "debug":true
+    "request":10000,//设置wx.request网络请求接口的超时时间
+    "downloadFile":10000,//设置wx.uploadFile上传文件接口的超时时间
+    "debug":true//开启debug模式
   }
   ``` 
