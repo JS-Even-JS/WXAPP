@@ -54,6 +54,10 @@
   c. 通过tabBar属性配置窗口底部的tabBar，所谓tabBar就是指小程序底部有一个可以用于切换页面的tab栏，tabBar至少要配置2个tab，最多配置5个tab，每个tab可以配置文字和图标，图标显示在tab的上方，文本显示在tab的下方，其主要配置如下:<br/>
   ![](https://github.com/JS-Even-JS/WXAPP/blob/master/res/tabBar_config.png)
   ![](https://github.com/JS-Even-JS/WXAPP/blob/master/res/tabBar.png)<br/>
+  #### 备注
+  ```
+  pages数组的第一项必须是tabBar的list数组的一员,否则无法显示tabBar菜单;
+  ```
   d. 通过networkTimeout属性配置网络超时时间，如:<br/>
   ```
   "networkTimeout":{
@@ -106,9 +110,25 @@ Page({
     motto: 'Hello World'
   },
   viewTap:function(){
-    this.setData({
+    this.data.motto = "XiXi";// 这种方式是无法实现动态数据更新的，这样只能改变Model中的数据，但是View中的数据并不会动态更新;c
+    this.setData({ // 只有通过this.setData()方法才能实现数据的动态更新
       motto:"Haha"
     });
   }
 })
 ```
+### 2.4 页面描述文件wxml
+* 2.4.1 wxml常用的标签 <br/>
+  wxml文件中常使用的标签有: `<view>标签`、`<image>标签`、`<text>标签`;<br/>
+* 2.4.2 wxml中的数据绑定 <br/>
+  wxml使用{{}}来进行数据的双向绑定，页面中的动态数据均来自Page({})方法中配置的data，如:<br/>
+  ```
+    <text class="user-motto">{{motto}}</text>
+  ```
+* 2.4.3 wxml条件渲染 <br/>
+  a. wx:if条件渲染,wx:if的属性值用一个双引号进行包裹，并且要将内部表达式放在{{}}中，否则会被当做一个字符串进行处理，其也有wx:elif来表示else if的情况，还有wx:else表示else，不过wx:else不用跟任何属性值,如: <br/>
+  ```
+  <view wx:if="{{length > 5}}">1</view>//当length值大于5的时候显示该组件
+  <view wx:elif="{{length > 2}}">2</view>//当length值小于5且大于2的时候,显示该组件
+  <view wx:else>3</view> //当length值小于2的时候，显示该组件,wx:else不需要跟任何属性值
+  ```
