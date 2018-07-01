@@ -170,7 +170,13 @@ Page({
  ```
    <template name="userTemp">
     <view>
-        <view>姓名:{{item.name}}</view>
+        <view>姓名:{{user.name}}</view>
     </view>
    </template> 
  ```
+  b. 使用模板，使用模板的时候也是使用<template>标签，但是需要添加is属性，属性值为模板名称，同时添加一个data属性，将数据传入模板中，如:<br/>
+  ```
+   <view wx:for="{{users}}" wx:for-index="id" wx:for-item="user">
+      <template is="userTemp" data="{{user}}"></template>
+   </view>
+  ```
