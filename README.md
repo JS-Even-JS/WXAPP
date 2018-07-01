@@ -187,4 +187,30 @@ Page({
     <include src="header.wxml"/>
   ```
 ### 2.5 页面的事件
+  * 2.5.1 事件类型
+    事件类型分为:`冒泡事件`、`非冒泡事件`;
+    冒泡事件:`touchstart`、`touchmove`、`touchcancel`、`touchend`、`tap(相当于click事件)`、`longtap(长按事件)`;<br/>
+    非冒泡事件: `<form>的submit事件`、`<input>的input事件`、`<scroll-view>的scroll事件`;
+  * 2.5.2 事件绑定
+    绑定事件的时候，需要在事件名前加上bind或者catch，其中bind开头的事件绑定不会阻止事件冒泡，catch开头的事件绑定则会阻止事件冒泡;如:<br/>
+    ```
+        <view class="fuView" bindtap="test">
+            fuView
+            <view class="ziView" catchtap="testBubble">
+                 ziView
+            </view>
+      </view>
+    如果ziView中使用的是bindtap来绑定事件，那么当用户点击ziView的时候，tap事件就会冒泡到fuView元素上;
+    如果ziView中使用的是catchtap来绑定事件，那么当用户点击ziView的时候，tap事件就不会冒泡到fuView元素上;
+    ```
+  * 2.5.3 事件对象
+    我们绑定事件处理函数的时候，不能通过`事件处理函数(event)`的方式给事件处理函数传递对象，而是直接写事件处理函数的名字即可，否则会报错;<br/>
+    事件对象会自动传递到事件处理函数中，我们只需要定义一个event参数进行接收即可,常见的事件对象属性有:<br/>
+    a. type属性，返回当前触发的事件类型，如tap;<br/>
+    b. timeStamp属性，返回一个毫秒数，表示从该页面打开到触发事件所经过的毫秒数;<br/>
+    c. target属性，返回一个触发事件的源组件，其有id(触发事件的组件id)、dataset(表示触发事件的组件对象上data-属性名设置的数据)、offsetLeft(触发事件的组件对象的水平偏移量)、offsetTop(触发事件的组件对象的垂直偏移量)等属性;<br/>
+    d. currentTarget属性，返回的事件绑定组件对象，和target对象一样，具有id、dataset、offsetLeft、offsetTop等属性;<br/>
+    e. touches属性,保存触摸点的信息，其是一个数组，用于存放触摸点，每个触摸点都有pageX、pageY属性(距离文档左上角的距离)和clientX、clientY属性(距离页面可视区(屏幕去除导航条)左上角的距离);<br/>
   
+    
+    
