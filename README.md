@@ -170,13 +170,21 @@ Page({
  ```
    <template name="userTemp">
     <view>
-        <view>姓名:{{user.name}}</view>
+        <view>姓名:{{item.name}}</view>//这里定义了一个item变量，传递数据的时候也必须传递一个数据并赋值给item
     </view>
    </template> 
  ```
   b. 使用模板，使用模板的时候也是使用<template>标签，但是需要添加is属性，属性值为模板名称，同时添加一个data属性，将数据传入模板中，如:<br/>
   ```
    <view wx:for="{{users}}" wx:for-index="id" wx:for-item="user">
-      <template is="userTemp" data="{{user}}"></template>
+      <template is="userTemp" data="{{item:user}}"></template>//将user对象赋值给item变量，模板内部就可以使用这个item变量了
    </view>
   ```
+* 2.4.6 引入其他页面
+  引入其他页面有两种方式，一种是通过import的方式，另一种是通过include的方式，如:
+  ```
+    <import src="template.wxml"/>
+    <include src="header.wxml"/>
+  ```
+### 2.5 页面的事件
+  
