@@ -132,3 +132,45 @@ Page({
   <view wx:elif="{{length > 2}}">2</view>//当length值小于5且大于2的时候,显示该组件
   <view wx:else>3</view> //当length值小于2的时候，显示该组件,wx:else不需要跟任何属性值
   ```
+  b. block wx:if条件渲染 <br/>
+  上面的wx:if是控制一个组件的渲染，当需要控制多个组件的时候，我们就需要使用到<block wx:if></block>了，如:<br/>
+  ```
+   <block wx:if="{{condition}}">
+      <view> view1</view>
+      <view> view2</view>
+   </block>
+  ```
+ * 2.4.4 wxml列表渲染 <br/>
+   a. wx:for 列表渲染,我们只需要让wx:for的值等于"{{data中的数组变量}}"即可，其中有index变量表示数组的索引，item表示数组的元素，如: <br/>
+   ```
+    <view wx:for="{{users}}">
+      {{index}}-{{item.name}}
+    </view>
+   ```
+   b. 当然我们除了可以使用默认的index和item之外，我们还可以重命名，可以通过wx:for-index="新的索引名"，wx:for-item="新的变量名"，如:<br/>
+   ```
+    <view wx:for="{{users}}" wx:for-index="id" wx:for-item="user">
+       {{id}}-{{user.name}}
+    </view>
+   ```
+   c. wx:for嵌套，如输出一个乘法表<br/>
+   ```
+    <view wx:for="{{[1,2,3,4,5,6,7,8,9]}}" wx:for-item="i">
+      <view wx:for="{{[1,2,3,4,5,6,7,8,9]}}" wx:for-item="j">
+          <view wx:if="{{i <= j}}">
+              {{i}} * {{j}} = {{i * j}}
+          </view>
+      </view>
+    </view>
+   ```
+   d. block wx:for 也可以使用<block>标签进行多个组件渲染;<br/>
+  
+ * 2.4.5 使用模板  
+   a. 定义模板，定义模板也是在wxml文件中进行，并且使用<template>标签，通过name属性给模板命名，<template>模板内部可以定义一些变量，然后在使用模板的时候将数据传入即可，如：<br/>
+ ```
+   <template name="userTemp">
+    <view>
+        <view>姓名:{{item.name}}</view>
+    </view>
+   </template> 
+ ```
