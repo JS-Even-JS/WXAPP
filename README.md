@@ -304,4 +304,46 @@ Page({
  ### 同样，微信小程序也提供了对应的modal接口，如:<br/>
   其通过wx.showModal()方法传递一个参数配置对象,如title、content、showCancel、cancelText、cancelColor、confirmText、confirmColor、success(接口调用成功后执行的回调)、fail(接口调用失败后执行的回调)、complete(接口调用完成后执行的回调);<br/>
 * 5.4 action-sheet底部弹出菜单组件<br/>
-  <action-sheet>有两个
+  <action-sheet>有两个子组件,即<action-sheet-item>和<action-sheet-cancel>两个子组件;其中<action-sheet-item>组件用于展示菜单内容;<action-sheet-cancel>用于显示取消按钮;当点击<action-sheet-cancel>后，会触发<action-sheet>组件上的bindchange事件,这个事件函数可以进行<action-sheet>的显示和隐藏等操作;<br/>
+<action-sheet>组件只有两个属性:<br/>
+a.hidden,控制<action-sheet>组件的显示和隐藏;<br/>
+b.bindchange,绑定change事件;单击遮罩层和点击<action-sheet-cancel>都会触发该事件<br/>
+### 同样,微信小程序也提供了对应的API接口，如:
+其通过调用wx.showActionSheet()方法，并传递一个参数配置对象,其常用属性为:<br/>
+a.itemList,用于配置菜单列表项，是一个数组，最多有6个元素;<br/>
+b.itemColor,用于设置菜单项的文字颜色;<br/>
+c.success,fail,complete,接口调用成功、失败、完成后的回调函数;<br/>
+在success回调函数中可以接收到一个参数对象，这个参数对象有两个属性:<br/>
+①cancel,用户是否取消选择;<br/>
+②tapIndex,返回用户点击的菜单项的索引,从0开始;<br/>
+## 第六章 用多媒体展示更多
+ ### 多媒体组件
+ * 6.1 audio组件,audio组件有很多常用的属性，如:<br/>
+ ①id,这个是audio组件在页面上的id值，如果需要使用JS去控制音乐的播放，则需要设置该id值;<br/>
+ ②src,指定要播放的音乐的地址;<br/>
+ ③controls,是否显示音乐控件，默认为true即显示;<br/>
+ ④poster,是否在控件上显示音乐封面，只有controls为true时才会生效;<br/>
+ ⑤name,用于设置播放的音乐的歌名，只有controls为true时才会生效，否则显示未知音频;<br/>
+ ⑥author,用于设置播放音乐的歌手名,只有controls为true时才会生效，否则显示未知作者<br/>
+ ⑦bindplay,绑定play事件，音乐开始或继续播放的时候会触发play事件;<br/>
+ ⑧bindpause,绑定pause事件，当音乐暂停的时候会触发pause事件;<br/>
+ ⑨bindtimeupdate,绑定timeupdate事件，当播放进度改变的时候就会触发timeupdate事件;<br/>
+ ⑩bindended事件,绑定ended事件,当音乐播放结束的时候就会触发ended事件;<br/>
+### 如果要设置自动播放，那么需要给<audio>组件添加一个action属性，属性值从data数据中获取,如:
+ ```
+    data:{
+        audioAction:{
+            method:"play"
+        }
+    }
+  <audio action="{{audioAction}}"></audio>
+ ```
+ ### 我们也可以通过JS来控制的音乐播放等操作,如:
+ 我们可以使用wx.createAudioContext("audio组件的id值")接口获取到指定id的上下文对象,然后通过调用其play()、pause()、seek()等方法进行音乐的控制;<br/>
+ ### 微信小程序也提供了播放音乐相关的接口,如:
+ ①wx.playBackgroundAudio(),传递一个参数配置对象,如:
+   a.dataUrl,表示音乐的播放地址;<br/>
+   b.title,音乐的标题,即歌名;<br/>
+   c.coverImgUrl,音乐的封面地址<br/>
+   d.success,fail,complete接口调用成功、失败、完成的回调;<br/>
+ ②wx.pauseBackgroundAudio(),因为同一
