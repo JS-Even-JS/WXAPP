@@ -282,5 +282,26 @@ Page({
    a.hidden:用于控制组件的显示和隐藏;<br/>
    b.duration:设置一个时间毫秒值，表示多长时间之后自动触发bindchange事件;<br/>
    c.bindchange:可以绑定一个change事件，用于控制tast的显示和隐藏等操作;<br/>
- * 5.3 
-   
+### 微信小程序也提供了调用API的方式来实现loading和toast效果，如:<br/>
+   其通过wx.showToast()方法，传递一个参数配置对象，如:<br/>
+   a.title,必须配置的属性，表示loading或toast显示的文字信息;<br/>
+   b.icon,也是必须配置的属性，不过只有两个值，loading表示是loading组件效果;success表示的是toast组件效果;<br/>
+   c.duration,表示提示框显示的时间，到时间后会自动关闭，默认为1500ms，最大可设置为10000ms;<br/>
+   d.success,表示接口调用成功后执行的回调函数，回调并不会等到提示框关闭后才执行，而是立即执行;<br/>
+   e.fail,表示接口调用失败后执行的回调函数;也是是立即执行; <br/>
+   f.complete,表示接口调用完成时执行的回调函数;也是是立即执行;<br/>
+ * 5.3 modal组件<br/>
+   loading和toast只是被动的接收系统的提示，用户无法主动改变系统的执行流程，所以微信小程序又提供了modal模态框组件，用户可以通过其提供的按钮，由用户来决定程序的流程，如:<br/>
+   modal模态框常用属性:<br/>
+  a.title,设置modal模态框的标题，而modal模态框的内容则写在<modal>组件内部，如<modal>模态框内容</modal>;可以不设置标题<br/>
+  b.hidden,控制modal模态框的显示和隐藏;<br/>
+  c.no-cancel,控制底部左侧的取消按钮的显示和隐藏;默认为false,即不隐藏;<br/>
+  d.confirm-text,设置底部右侧confirm确定按钮的文字，默认为确定;<br/>
+  e.cancel-text,设置底部左侧cancel取消按钮的文字，默认为取消;<br/>
+  f.bindconfig,设置点击确定按钮后执行的回调函数;<br/>
+  g.bindcancel,设置点击取消按钮后执行的回调函数;<br/>
+ ### 注意，modal模态框内部可以嵌入表单内容;<br/>
+ ### 同样，微信小程序也提供了对应的modal接口，如:<br/>
+  其通过wx.showModal()方法传递一个参数配置对象,如title、content、showCancel、cancelText、cancelColor、confirmText、confirmColor、success(接口调用成功后执行的回调)、fail(接口调用失败后执行的回调)、complete(接口调用完成后执行的回调);<br/>
+* 5.4 action-sheet底部弹出菜单组件<br/>
+  <action-sheet>有两个
