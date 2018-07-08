@@ -279,5 +279,8 @@ Page({
    ②我们可以通过setInterval定时器，每隔一秒改变一下时间，实现倒计时退出;
  * 5.2 totast组件<br/>
    ①loading组件默认会有一个旋转的动画图标，在有的时候这种动画就不合事宜，所以又提供了一个toast组件，其不会有动画，但是会显示一个对勾;toast组件相对于loading组件有更多属性设置，如:<br/>
-   a.hidden:用于控制组件的显示
+   a.hidden:用于控制组件的显示和隐藏;<br/>
+   b.duration:设置一个时间毫秒值，表示多长时间之后自动触发bindchange事件;<br/>
+   c.bindchange:可以绑定一个change事件，用于控制tast的显示和隐藏等操作;<br/>
+ * 5.3 
    
