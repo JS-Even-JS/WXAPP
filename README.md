@@ -241,6 +241,36 @@ Page({
  * 3.4 页面跳转，有两种方式跳转，如:<br/>
  ①wx.navigateTo接口，这个接口会保留当前页面，并跳转到应用中的某个页面，也就是说跳转前的页面仍然保留在内存中，没有被销毁，在跳转到的新页面中，可以通过wx.navigateBack接口返回到跳转前的页面;跳转或的页面的左上角会自带返回按钮;<br/>
  ②wx.redirectTo接口，这个接口跳转前会关闭跳转前的页面;跳转后的页面中没有返回按钮;<br/>
+ ## 第四章 表单相关控件
+ ### 用form组件收集信息
+ * 4.1 form组件特殊属性，如:
+   ①report-submit:是否返回formId用于发送模板消息;<br/>
+   ②bindsubmit:绑定submit提交事件，当点击提交按钮的时候就会触发指定的事件处理函数，事件处理函数可以通过事件对象e.detail.value获取到整个表单内容的数据对象,不过要想点击提交按钮触发submit事件，这个提交按钮必须指定formType值为submit，formType="submit";<br/>
+   ③bindreset:绑定reset重置事件，当点击重置按钮的时候就会触发指定的事件处理函数，同样这个重置按钮必须指定formType的值为reset,formType="reset"，点击重置按钮后并不是回到页面绑定时候的初始值，而是回到控件的默认值;<br/>
+ * 4.2 radio和radio-group组件,如:
+   ①radio组件是一个单选按钮组件，其必须放在radio-group组件中才能获取到单选按钮对应的值，因为我们必须将name属性设置到radio-group组件上，value属性设置在radio组件上，并且处于radio-group组件中的radio组件只能有一个被选中,name属性设置到radio组件上无效;<br/>
+   ②radio-group组件作为一个容器组件，本身不需要设置value和checked属性，但是其可以绑定change事件，当用户选择不同的radio按钮的时候，就会触发对应的bindchange事件,事件处理函数中也可以通过事件对象e.detail.value获取到对应的单选按钮的属性值;<br/>
+   ③radio组件可以设置value属性(radio组件对应的值)、checked属性(选中)、disabled属性(禁用);<br/>
+ * 4.3 checkbox和checkbox-group组件
+   ①checkbox和checkbox-group组件的用法和radio组件一致,只不过提交的时候checkbox的值是一个数组;
+ * 4.4 picker组件
+   picker组件就是所谓的下拉选择列表，其有三种模式，可以通过mode属性进行设置，如:<br/>
+   ①selector,即默认为普通选择器，可以不设置，默认为selector，当mode值为selector的时候，range属性有效，其属性值为一个数组，即下拉选择列表项，同时可以给其设置一个value属性，value属性值为一个整数即对应数组中的索引值，可以给其绑定bindchange事件，当滑动下拉列表选择不同的值的时候，就会触发bindchange事件，可以通过事件对象e.detail.value获取到选择的索引值，然后在事件处理函数中改变索引值即可选择不同的下拉选项;<br/>
+    同时要注意，我们必须在picker组件内部添加文字显示，然后点击picker组件中的文字即可弹出对应的下拉列表;<br/>
+   ②date,当mode值为date的时候，就变成了一个日期选择器，其有一个value属性，属性值为一个日期，格式为YYYY-MM-DD，当打开日期选择器的时候就会默认选择到指定的日期上，即value的属性值;其也可以通过绑定bindchange事件，然后通过事件对象e.detail.value获取到选择的日期，然后通过this.setData()进行更新即可;同时还可以设置start和end属性，表示日期选择器的可滚动范围，即日期的起止时间;<br/>
+   ③time,当mode值为time的时候，就变成了一个时间选择器，其有一个value属性，属性值为一个时间，格式为HH:MM，当打开时间选择器的时候就会默认选择到指定的时间上，即value的属性值;其也可以通过绑定bindchange事件，然后通过事件对象e.detail.value获取到选择的时间，然后通过this.setData()进行更新即可;<br/>
+ ### 我们给picker组件添加上name属性，在提交表单的时候就可以捕获到对应picker中的属性值了;不过默认选择器selector获取到的是索引值<br/>
+* 4.5 textarea组件
+  ①textarea即多行文本输入框;<br/>
+* 4.6 swiper轮播图组件
+  ①swiper轮播图组件是一个容器组件，其中放置的组件会轮换显示，但是swiper组件中只能放置名为swiper-item的组件，其他组件则会被自动删除，当然swiper-item组件内部可以放置其他要显示的组件，比如image组件;<br/>
+  ②swiper组件可以设置很多属性，如:<br/>
+    a. indicator-dots:设置是否在界面中显示面板指示点，默认为false表示不显示;<br/>
+    b. autoplay:设置是否自动切换swiper-item，默认为false即表示不自动播放;<br/>
+    c. current:是一个索引值，默认为0表示显示第一个swiper-item;<br/>
+    d. interval:是一个时间毫秒值，表示自动切换页面的时间间隔;<br/>
+    e. duration:也是一个时间毫秒值，表示页面滑动动画时长;<br/>
+    f. bindchange:可以绑定一个change事件，可以通过e.detail.current获取到当前的current，即切换到下一张图片对应的current;<br/>
+    g. vertical:是一个布尔值，用于切换指示点的显示位置，默认为false即在水平方向显示,可以控制轮播图的滑动方向;  
+ ## 第五章 微信小程序交互反馈
  
-   
-   
