@@ -346,4 +346,9 @@ c.success,fail,complete,接口调用成功、失败、完成后的回调函数;<
    b.title,音乐的标题,即歌名;<br/>
    c.coverImgUrl,音乐的封面地址<br/>
    d.success,fail,complete接口调用成功、失败、完成的回调;<br/>
- ②wx.pauseBackgroundAudio(),因为同一
+ ②wx.pauseBackgroundAudio(),因为同一时刻，只能有一首歌在播放,所以其不需要传递任何参数;<br/>
+ ③wx.stopBackgroundAudio(),因为同一时刻，只能有一首歌在播放,所以其不需要传递任何参数;<br/>
+ ④wx.getBackgroundAudioPlayerState(),获取音乐播放状态,因为同一时刻，只能有一首歌在播放,所以其不需要传递任何参数;但是可以设置success、fail、complete回调函数，回调函数参数对象中有duration、currentPosition、status、downloadPercent、dataUrl等属性<br/>
+ ⑤微信小程序还提供了音乐的监听功能，通过wx.onBackgroundAudioPlay()、wx.onBackgroundAudioPause()、wx.onBackgroundAudioStop()来实现;<br/>
+ 
+ 
